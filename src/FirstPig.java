@@ -1,4 +1,5 @@
 public class FirstPig extends Pig{
+    // This is the first pig (to be deleted)
 
     public FirstPig(String name) {
         super(name);
