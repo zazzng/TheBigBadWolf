@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 //there are some parts that both pig1 and pig2 say same things
@@ -47,7 +46,7 @@ public class BBW {
             pig.say("You get there quick Red Riding Hood. "
                     + "\nIf you take the shortcut through the wood.");
         }
-        
+        //this comment is to test if I could push the code to git 
     
     }
     
