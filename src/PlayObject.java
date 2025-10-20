@@ -1,12 +1,12 @@
-public abstract class PlayObjects {
-    //fiels
+public abstract class PlayObject {
+    //fields
     protected String mName = null;
     public String getName() {
         return this.mName;
     }
     
     //protected constructor that is called by its child class
-    protected PlayObjects(String name) {
+    protected PlayObject(String name) {
         this.mName = name;
     }
 }

@@ -4,7 +4,7 @@ public class SecondPig extends Pig{
         super(name);
     }
 
-//    @Override
+    @Override
     public void playMusicalInstrument() {
         String s = this.mName + " plays his fiddle.";
         System.out.println(s);

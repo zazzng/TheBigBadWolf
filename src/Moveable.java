@@ -1,16 +1,24 @@
-public abstract class Moveable extends PlayObjects{
+public abstract class Moveable extends PlayObject{
     
     public Moveable(String name) {
         super(name);
     }
     
-    public void walkTo(PlayObjects po) {
-        String s = this.mName + " walk to " + po.getName();
+    public void walkTo(PlayObject po) {
+        String s = this.mName + " walks to " + po.getName() + ".";
         System.out.println(s);
     }
     
-    public void visit(String something) {
-        String s = this.mName + " visits " + something + ".";
+    public void runAwayTo(PlayObject po, boolean away){
+        String s = null;
+        if (po == null) {
+            s = this.mName + " runs away.";
+        } else if (!away) {
+            s = this.mName + " runs around " + po.getName() + ".";
+        } else {
+            s = this.mName + " runs away to " + po.getName() + ".";
+        }
+        
         System.out.println(s);
     }
     
@@ -24,12 +32,44 @@ public abstract class Moveable extends PlayObjects{
         System.out.println(s);
     }
     
+    // Q: do we need this or can we just use say()
     public void answer(String something) {
         String s = this.mName + " answers, \"" + something + "\"";
         System.out.println(s);
     }
     
+    public void laugh() {
+        String s = this.mName + " laughs.";
+        System.out.println(s);
+    }
     
+    public void dance() {
+        String s = this.mName + " dances.";
+        System.out.println(s);
+    }
     
+    public void sing() {
+        String s = this.mName + " sings.";
+        System.out.println(s);
+    }
     
+    public void knock(PlayObject po) {
+        String s = this.mName + " knocks on " + po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    public void enter(PlayObject po) {
+        String s = this.mName + " enters " + po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    public void close(PlayObject po) {
+        String s = this.mName + " closes " + po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    public void hide(String preposition, PlayObject po) {
+        String s = this.mName + " hides " + preposition + " " + 
+            po.getName() + ".";
+    }
 }
