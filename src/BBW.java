@@ -2,6 +2,19 @@ import java.util.ArrayList;
 
 //there are some parts that both pig1 and pig2 say same things
 //how to make it into one line?
+
+//QUESTION: Do we need to pay attention on the tense like present tense and present continuous tense?
+//QUESTION: shhould we mention that Wilson literaly takes the short cut to the Grandma's house?
+//QUESTION: is it grammarly okey to keep this "Grandma's house's door."
+//QUESTION: when wolf disguise as Grandma and talks to RRH, 
+//do we need to specifically identify wolf like "Wolf in Grandma costume"?
+//Also we will need to check the typo later. cause sometime we add period at the end
+//but sometime not 
+//QUESTION: should we say RRH run around the table and hide under the table or just say run around the house?
+
+//Done with the script in general. However still need to double check and there are some script are missing. 
+//For example, when wolf fell off the tree, before that shouldnt we mention that the wolf 
+//disguise himself as a fairy and approach the others from the tree (like hanging himself on the tree).
 public class BBW {
 
     public static void display(String s) {
@@ -19,8 +32,16 @@ public class BBW {
         
         // declare places
         Woods woods = new Woods("woods");
-        PigHouse pigHouse = new PigHouse("Three Little Pigs' House");
-        GrandmaHouse grandmaHouse = new GrandmaHouse("Grandma's House");
+        PigHouse pigHouse = new PigHouse("Three Little Pigs' house");
+        GrandmaHouse grandmaHouse = new GrandmaHouse("Grandma's house");
+        Cupboard cupboard = new Cupboard("the cupboard");
+        Blanket blanket = new Blanket("blanket");
+        Bed bed = new Bed("bed");
+        
+        
+        // declare items
+        PopCorn popCorn = new PopCorn("pop corn"); 
+        Coal coal = new Coal("hot coal");
         
         // declare groups
         ArrayList<Pig> pigsWithInstruments = new ArrayList<Pig>();
@@ -32,6 +53,13 @@ public class BBW {
         woodsTeam.add(pig2);
         woodsTeam.add(redGirl);
         
+        ArrayList<Moveable> playingMusicalInstrumentTeam = new ArrayList<>();
+        playingMusicalInstrumentTeam.add(pig1);
+        playingMusicalInstrumentTeam.add(pig2);
+        playingMusicalInstrumentTeam.add(pig3);
+        playingMusicalInstrumentTeam.add(redGirl);
+        
+        // Introduce the main title of the story
         BBW.display("<<The Big Bad Wolf>>");
         
         BBW.display("=== Red Riding Hood meets Three Little Pigs ===");
@@ -83,7 +111,7 @@ public class BBW {
         }
         
         for (Pig pig : pigsWithInstruments) {
-            pig.say("Who's afraid of the Big Bad Wolf?");
+            pig.sing("Who's afraid of the Big Bad Wolf?");
             pig.playMusicalInstrument();
         }
         
@@ -101,8 +129,10 @@ public class BBW {
         }
         
         wolf.approach(woodsTeam);
-        wolf.say("I'm Goldilox the Fairy Queen");
-        wolf.sing();
+        wolf.sing("I'm Goldilox the Fairy Queen. "
+                + "Spirit of the woods in my whoops. "
+                + "\nYou better fly from tree to tree. "
+                + "Come come my dear. You're safe with me.");
         
         wolf.actionOnTree("fell off");
         wolf.disguiseExposed();
@@ -120,6 +150,86 @@ public class BBW {
         wolf.walkTo(grandmaHouse);
         grandma.knit();
         wolf.knock(grandmaHouse.getDoor());
+        grandma.say("Come in!");
+        wolf.enter(grandmaHouse);
+        wolf.chase(grandma);
+        grandma.hide("in", cupboard);
+        wolf.bangs(cupboard);
+        
+        redGirl.walkTo(grandmaHouse);
+        redGirl.knock(grandmaHouse.getDoor());    
+        wolf.disguise("grandma");
+        wolf.say("Come in!");
+        redGirl.enter(grandmaHouse);
+        redGirl.say("Good morning Grandma, how do you feel?");
+        wolf.say("Terrible!");
+        wolf.changeVoice(grandma);
+        wolf.say("Not so hot, deary");
+        redGirl.surprise();
+        redGirl.ask("Ooh grandma, what big eyes you’ve got!");
+        wolf.say("All the better to look you over deary");
+        redGirl.surprise();
+        redGirl.ask("Ooh grandma, what a big nose you’ve got!");
+        wolf.say("All the better to hachchchh");
+        wolf.hide("under", blanket);
+        wolf.talkToHimself("How am I doing");
+        wolf.laugh();
+        wolf.moveHeadOutOfBlanket(blanket);
+        redGirl.surprise();
+        redGirl.ask("Ooh grandma, what a big mouth you’ve got!");
+        wolf.changeVoice(wolf);
+        wolf.say("You ain’t seen enough of me deary?");
+        wolf.laugh();
+        wolf.chase(redGirl);
+        redGirl.runAwayTo(grandmaHouse, false);
+        
+        BBW.display("=== Pigs' House ===");
+        
+        //BIG QUESTION. IS THERE ANYWAY TO REFACTOR THIS
+        for (Pig pig : pigsWithInstruments) {
+            pig.runAwayTo(pigHouse, true);
+        }
+        for (Pig pig : pigsWithInstruments) {
+            pig.hide("under", bed);
+        }
+        for (Pig pig : pigsWithInstruments) {
+            pig.say("The Wolf! He's got her!");
+        }
+        
+        pig3.packEquipment();
+        pig3.runAwayTo(grandmaHouse, true);
+        
+        BBW.display("=== Grandma's House ===");
+        wolf.chase(redGirl);
+        grandma.take(redGirl,cupboard);
+        redGirl.hide("inside", cupboard);
+        grandma.hide("inside", cupboard);
+        wolf.bangs(cupboard);
+        pig3.enter(grandmaHouse);
+        wolf.say("Open the door and let me in.");
+        pig3.tiptoe(wolf);
+        pig3.putStuffs(popCorn, coal, wolf);
+        wolf.burn();
+        wolf.fly(grandmaHouse.getRoof());
+        popCorn.pop();
+        wolf.runAwayTo(null, true); 
+        pig1.shakeHandsWith(pig2);
+        
+        BBW.display("=== Grandma's House After Chasing The Wolf Away ===");
+        grandma.knit();
+        
+        //hmmm this part is okeyy?
+        for (Moveable pianoTeammates : playingMusicalInstrumentTeam){
+            pianoTeammates.playMusicalInstrument();
+        }
+        
+        for (Pig pig : pigsWithInstruments){
+            pig.sing("Who’s afraid of the big bad wolf. "
+                    + "He’s the biggest sissy");
+        } 
+        
+        
+        
     
     }
     
