@@ -4,6 +4,7 @@ public class RedRidingHood extends Moveable{
         super(name);
     }
     
+    @Override
     public void playMusicalInstrument() {
         String s = this.mName + " plays the piano.";
         System.out.println(s);

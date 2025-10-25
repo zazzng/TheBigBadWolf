@@ -3,6 +3,13 @@ import java.util.ArrayList;
 
 public class Wolf extends Moveable {
     
+    // introduce Wolf's different roles
+    public enum Role { WOLF, FAIRY, GRANDMA };
+    private Role mRole = Role.WOLF;
+    public Role getRole() {
+        return this.mRole;
+    }
+    
     public Wolf(String name) {
         super(name);
     }
@@ -12,11 +19,10 @@ public class Wolf extends Moveable {
         System.out.println(s);
     }
     
-    // TODO: refactor to make chase() and approach() into 1 function
-    public void chase(ArrayList<Moveable> subjects) {
+    public void moveToward(String action, ArrayList<Moveable> subjects) {
         StringBuffer sb = new StringBuffer();
         sb.append(this.mName);
-        sb.append(" chases ");
+        sb.append(" " + action + " ");
         for (int i = 0; i > subjects.size(); i++) {
             Moveable subject = subjects.get(i);
             sb.append(subject.getName());
@@ -27,32 +33,31 @@ public class Wolf extends Moveable {
             }
         }
         System.out.println(sb.toString());
+    }
+    
+    public void chase(ArrayList<Moveable> subjects) {
+        this.moveToward("chases", subjects);
     }
     
     public void approach(ArrayList<Moveable> subjects) {
-        StringBuffer sb = new StringBuffer();
-        sb.append(this.mName);
-        sb.append(" approaches ");
-        for (int i = 0; i > subjects.size(); i++) {
-            Moveable subject = subjects.get(i);
-            sb.append(subject.getName());
-            if (i == subjects.size() - 1) {
-                sb.append(".");
-            } else {
-                sb.append(" and ");
-            }
-        }
-        System.out.println(sb.toString());
+        this.moveToward("approaches", subjects);
     }
     
-    public void disguise(String something) {
-        String s = this.mName + " disguises as " + something + ".";
-        System.out.println(s);
+    public void disguiseAs(Role newRole) {
+        if (newRole != Role.WOLF) {
+            this.mRole = newRole;
+            String s = this.mName + " disguises as " +
+                newRole.name().toLowerCase() + ".";
+            System.out.println(s);
+        }
     }
     
     public void disguiseExposed() {
-        String s = this.mName + "'s disguise is exposed.";
-        System.out.println(s);
+        if (this.mRole != Role.WOLF) {
+            String s = this.mName + "'s disguise as " +
+                this.mRole.name().toLowerCase() + " is exposed.";
+            System.out.println(s);
+        }
     }
     
     public void actionOnTree(String action) {
@@ -60,7 +65,6 @@ public class Wolf extends Moveable {
         System.out.println(s);
     }
     
-    // COMMENT: is bang an ok word??
     public void bangs(PlayObject po) {
         String s = this.mName + " bangs on " + po.getName();
         System.out.println(s);

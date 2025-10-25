@@ -1,6 +1,5 @@
 public class GrandmaHouse extends House {
     protected Cupboard mCupboard = null;
-
     public Cupboard getCupboard() {
         return this.mCupboard;
     }
