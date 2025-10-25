@@ -1,5 +1,5 @@
 public class FirstPig extends Pig{
-    
+    // Public constructor for a concrete class
     public FirstPig(String name) {
         super(name);
     }
@@ -9,5 +9,4 @@ public class FirstPig extends Pig{
         String s = this.mName + " plays his flute.";
         System.out.println(s);
     }
-    
 }

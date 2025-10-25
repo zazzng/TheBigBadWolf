@@ -1,5 +1,5 @@
 public class RedRidingHood extends Moveable{
-    
+    // Public constructor for a concrete class
     public RedRidingHood(String name) {
         super(name);
     }

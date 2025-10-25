@@ -13,8 +13,9 @@ public class House extends PlayObject {
     public Roof getRoof() {
         return this.mRoof;
     }
-
-    public House(String name) {
+    
+    // Protected constructor that is called by its child class
+    protected House(String name) {
         super(name);
     }  
 }

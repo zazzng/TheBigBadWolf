@@ -1,5 +1,5 @@
 public abstract class Moveable extends PlayObject{
-    
+    // Protected constructor that is called by its child class
     protected Moveable(String name) {
         super(name);
     }
@@ -19,7 +19,6 @@ public abstract class Moveable extends PlayObject{
         } else {
             s = this.mName + " runs to " + po.getName() + ".";
         }
-        
         System.out.println(s);
     }
     
@@ -64,17 +63,12 @@ public abstract class Moveable extends PlayObject{
         System.out.println(s);
     }
     
-    public void close(PlayObject po) {
-        String s = this.mName + " closes " + po.getName() + ".";
-        System.out.println(s);
-    }
-    
     public void hide(String preposition, PlayObject po) {
         String s = this.mName + " hides " + preposition + " " + 
             po.getName() + ".";
         System.out.println(s);
     }
     
-    // abstract method for its subclass to override later
+    // Abstract method for its subclass to override later
     public void playMusicalInstrument() {}
 }

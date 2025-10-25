@@ -4,6 +4,7 @@ public class Bed extends PlayObject {
         return this.mBlanket;
     }
     
+    // Public constructor for a concrete class
     public Bed(String name) {
         super(name);
         this.mBlanket = new Blanket("blanket");

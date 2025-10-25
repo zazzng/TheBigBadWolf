@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
 public class Wolf extends Moveable {
-    // introduce Wolf's different roles
+    // Introduce Wolf's different roles
     public enum Role { WOLF, FAIRY, GRANDMA };
     private Role mRole = Role.WOLF;
     public Role getRole() {
         return this.mRole;
     }
     
-    // constructor
+    // Public constructor for a concrete class
     public Wolf(String name) {
         super(name);
     }

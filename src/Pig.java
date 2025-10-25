@@ -1,6 +1,5 @@
 public abstract class Pig extends Moveable{
-     
-    // protected constructor that is called by its child class
+    // Protected constructor that is called by its child class
     protected Pig(String name) {
         super(name);
     }
@@ -8,6 +7,6 @@ public abstract class Pig extends Moveable{
     public void shakeHandsWith(Pig pigName) {
         String s = this.mName + " shakes hand with " + pigName.getName() + ".";
         System.out.println(s);
-    }
+    }  
 }
 

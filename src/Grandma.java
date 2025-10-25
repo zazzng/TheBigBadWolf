@@ -1,5 +1,5 @@
 public class Grandma extends Moveable {
-    
+    // Public constructor for a concrete class
     public Grandma(String name) {
         super(name);
     }
