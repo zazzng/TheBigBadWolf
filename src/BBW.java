@@ -120,6 +120,7 @@ public class BBW {
         
         wolf.actionOnTree("hides behind");
         wolf.disguiseAs(Wolf.Role.FAIRY);
+        wolf.disguiseAs(Wolf.Role.FAIRY);
         
         for (Pig pig : pigsWithInstruments) {
             pig.playMusicalInstrument();
@@ -162,7 +163,7 @@ public class BBW {
         
         redGirl.say("Good morning Grandma, how do you feel?");
         wolf.say("Terrible!");
-        wolf.changeVoice(grandma);
+        wolf.changeVoice(Wolf.Role.GRANDMA);
         wolf.say("Not so hot, deary");
         redGirl.surprise();
         redGirl.ask("Ooh grandma, what big eyes you’ve got!");
@@ -172,13 +173,14 @@ public class BBW {
         wolf.say("All the better to hachchchh");
         
         wolf.hide("under", blanket);
-        wolf.talkToHimself("How am I doing?");
+        wolf.changeVoice(Wolf.Role.WOLF);
+        wolf.talkToHimself("How am I doing");
         wolf.laugh();
         wolf.moveHeadOutOf(blanket);
         
         redGirl.surprise();
         redGirl.ask("Ooh grandma, what a big mouth you’ve got!");
-        wolf.changeVoice(wolf);
+        wolf.changeVoice(Wolf.Role.WOLF);
         wolf.say("You ain’t seen enough of me deary?");
         wolf.laugh();
         wolf.chase(redGirl);
