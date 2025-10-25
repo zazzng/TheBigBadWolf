@@ -1,5 +1,5 @@
 public class PopCorn extends PlayObject{
-    
+    // Public constructor for a concrete class
     public PopCorn(String name) {
         super(name);
     }
@@ -8,5 +8,4 @@ public class PopCorn extends PlayObject{
         String s = "The " + this.mName + " pops.";
         System.out.println(s);
     }
-    
 }

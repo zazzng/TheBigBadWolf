@@ -4,6 +4,7 @@ public class GrandmaHouse extends House {
         return this.mCupboard;
     }
     
+    // Public constructor for a concrete class
     public GrandmaHouse(String name) {
         super(name);
         this.mDoor = new Door(this.mName + "'s door");

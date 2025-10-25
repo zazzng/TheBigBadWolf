@@ -1,5 +1,5 @@
 public class ThirdPig extends Pig{
-
+    // Public constructor for a concrete class
     public ThirdPig(String name) {
         super(name);
     }

@@ -1,6 +1,6 @@
 public abstract class Moveable extends PlayObject{
-    
-    public Moveable(String name) {
+    // Protected constructor that is called by its child class
+    protected Moveable(String name) {
         super(name);
     }
     
@@ -18,7 +18,6 @@ public abstract class Moveable extends PlayObject{
         } else {
             s = this.mName + " runs to " + po.getName() + ".";
         }
-        
         System.out.println(s);
     }
     
@@ -32,7 +31,6 @@ public abstract class Moveable extends PlayObject{
         System.out.println(s);
     }
     
-    // Q: do we need this or can we just use say()
     public void answer(String something) {
         String s = this.mName + " answers, \"" + something + "\"";
         System.out.println(s);
@@ -79,8 +77,7 @@ public abstract class Moveable extends PlayObject{
         System.out.println(s);
     }
     
-    //dummy method for its subclass override later
+    // Dummy method for its subclass override later
     public void playMusicalInstrument(){
-        
     }
 }
