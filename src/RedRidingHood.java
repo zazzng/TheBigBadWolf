@@ -9,9 +9,9 @@ public class RedRidingHood extends Moveable{
         String s = this.mName + " plays the piano.";
         System.out.println(s);
     }
-    //can I do surprise and ask or divide it into surprise / ask
-    public void surprise() {
-        String s = this.mName + " surprise.";
+    
+    public void surprised() {
+        String s = this.mName + " is surprised.";
         System.out.println(s);
     }
 }

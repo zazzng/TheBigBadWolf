@@ -5,7 +5,7 @@ public class PopCorn extends PlayObject{
     }
     
     public void pop() {
-        String s = "The " + this.mName + " pops.";
+        String s = "The " + this.getName() + " pops.";
         System.out.println(s);
     }
     

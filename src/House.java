@@ -1,4 +1,4 @@
-public class House extends Place {
+public class House extends PlayObject {
     protected Door mDoor = null;
     public Door getDoor() {
         return this.mDoor;

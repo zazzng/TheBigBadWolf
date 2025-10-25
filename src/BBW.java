@@ -36,7 +36,6 @@ public class BBW {
         GrandmaHouse grandmaHouse = new GrandmaHouse("Grandma's house");
         
         // declare items
-        Blanket blanket = new Blanket("blanket");
         PopCorn popCorn = new PopCorn("pop corn"); 
         Coal coal = new Coal("hot coal");
         
@@ -165,20 +164,20 @@ public class BBW {
         wolf.say("Terrible!");
         wolf.changeVoice(Wolf.Role.GRANDMA);
         wolf.say("Not so hot, deary");
-        redGirl.surprise();
+        redGirl.surprised();
         redGirl.ask("Ooh grandma, what big eyes you’ve got!");
         wolf.say("All the better to look you over deary");
-        redGirl.surprise();
+        redGirl.surprised();
         redGirl.ask("Ooh grandma, what a big nose you’ve got!");
         wolf.say("All the better to hachchchh");
         
-        wolf.hide("under", blanket);
+        wolf.hide("under", grandmaHouse.getBed().getBlanket());
         wolf.changeVoice(Wolf.Role.WOLF);
         wolf.talkToHimself("How am I doing");
         wolf.laugh();
-        wolf.moveHeadOutOf(blanket);
+        wolf.moveHeadOutOf(grandmaHouse.getBed().getBlanket());
         
-        redGirl.surprise();
+        redGirl.surprised();
         redGirl.ask("Ooh grandma, what a big mouth you’ve got!");
         wolf.changeVoice(Wolf.Role.WOLF);
         wolf.say("You ain’t seen enough of me deary?");

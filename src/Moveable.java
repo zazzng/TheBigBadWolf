@@ -1,6 +1,6 @@
 public abstract class Moveable extends PlayObject{
     
-    public Moveable(String name) {
+    protected Moveable(String name) {
         super(name);
     }
     
@@ -9,11 +9,12 @@ public abstract class Moveable extends PlayObject{
         System.out.println(s);
     }
     
-    public void runAwayTo(PlayObject po, boolean away){
-        String s = null;
+    public void runAwayTo(PlayObject po, boolean towards){
+        // prints the type of running the character po is doing
+        String s;
         if (po == null) {
             s = this.mName + " runs away.";
-        } else if (!away) {
+        } else if (!towards) {
             s = this.mName + " runs around " + po.getName() + ".";
         } else {
             s = this.mName + " runs to " + po.getName() + ".";
@@ -22,20 +23,25 @@ public abstract class Moveable extends PlayObject{
         System.out.println(s);
     }
     
-    public void say(String something) {
-        String s = this.mName + " says, \"" + something + "\"";
+    private void speak(String speechType, String something) {
+        String s = this.mName + " " + speechType + ", \"" + something + "\"";
         System.out.println(s);
+    }
+    
+    public void say(String something) {
+        this.speak("says", something);
     }
     
     public void ask(String something) {
-        String s = this.mName + " asks, \"" + something + "\"";
-        System.out.println(s);
+        this.speak("asks", something);
     }
     
-    // Q: do we need this or can we just use say()
     public void answer(String something) {
-        String s = this.mName + " answers, \"" + something + "\"";
-        System.out.println(s);
+        this.speak("answers", something);
+    }
+    
+    public void sing(String something) {
+        this.speak("sings", something);
     }
     
     public void laugh() {
@@ -45,11 +51,6 @@ public abstract class Moveable extends PlayObject{
     
     public void dance() {
         String s = this.mName + " dances.";
-        System.out.println(s);
-    }
-    
-    public void sing(String something) {
-        String s = this.mName + " sings, \"" + something + "\"";
         System.out.println(s);
     }
     
@@ -74,13 +75,6 @@ public abstract class Moveable extends PlayObject{
         System.out.println(s);
     }
     
-    public void chase(PlayObject po) {
-        String s = this.mName + " chases " + po.getName() + ".";
-        System.out.println(s);
-    }
-    
-    //dummy method for its subclass override later
-    public void playMusicalInstrument(){
-        
-    }
+    // abstract method for its subclass to override later
+    public void playMusicalInstrument() {}
 }
