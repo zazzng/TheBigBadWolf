@@ -8,9 +8,13 @@ public class House extends Place {
     public Bed getBed() {
         return this.mBed;
     }
+    
+    protected Roof mRoof = null;
+    public Roof getRoof() {
+        return this.mRoof;
+    }
 
     public House(String name) {
         super(name);
-    }
-    
+    }  
 }

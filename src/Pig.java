@@ -5,12 +5,14 @@ public abstract class Pig extends Moveable{
         super(name);
     }
     
-    // abstract methods
-    public abstract void playMusicalInstrument();
+//    // abstract methods
+//    public abstract void playMusicalInstrument();
     
     public void shakeHandsWith(Pig pigName) {
         String s = this.mName + " shakes hand with " + pigName.getName() + ".";
         System.out.println(s);
     }
+    
+    
 }
 

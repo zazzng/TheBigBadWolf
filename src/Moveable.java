@@ -16,7 +16,7 @@ public abstract class Moveable extends PlayObject{
         } else if (!away) {
             s = this.mName + " runs around " + po.getName() + ".";
         } else {
-            s = this.mName + " runs away to " + po.getName() + ".";
+            s = this.mName + " runs to " + po.getName() + ".";
         }
         
         System.out.println(s);
@@ -48,8 +48,8 @@ public abstract class Moveable extends PlayObject{
         System.out.println(s);
     }
     
-    public void sing() {
-        String s = this.mName + " sings.";
+    public void sing(String something) {
+        String s = this.mName + " sings, \"" + something + "\"";
         System.out.println(s);
     }
     
@@ -71,5 +71,16 @@ public abstract class Moveable extends PlayObject{
     public void hide(String preposition, PlayObject po) {
         String s = this.mName + " hides " + preposition + " " + 
             po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    public void chase(PlayObject po) {
+        String s = this.mName + " chases " + po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    //dummy method for its subclass override later
+    public void playMusicalInstrument(){
+        
     }
 }

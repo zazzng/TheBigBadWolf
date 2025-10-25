@@ -70,4 +70,24 @@ public class Wolf extends Moveable {
         String s = this.mName + " burns.";
         System.out.println(s);
     }
+
+    public void changeVoice(PlayObject po) {
+        String s = this.mName + " changes to " + po.getName() + "'s voice" + ".";
+        System.out.println(s);
+    }
+    
+    public void talkToHimself(String something) {
+        String s = this.mName + " talks to himself, \"" + something + "\"";
+        System.out.println(s);
+    }
+    
+    public void moveHeadOutOfBlanket(PlayObject po) {
+        String s = this.mName + " moves head out of " + po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    public void fly(PlayObject po) {
+        String s = this.mName + " flies off " + po.getName() + ".";
+        System.out.println(s);
+    }
 }
