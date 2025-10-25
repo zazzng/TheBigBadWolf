@@ -16,8 +16,8 @@ public class ThirdPig extends Pig{
     }
     
     public void attack(PlayObject po) {
-        String s = this.mName + " puts pop corn and hot coal into " + po + 
-            "'s pants.";
+        String s = this.mName + " puts pop corn and hot coal into " +
+            po.getName() + "'s pants.";
         System.out.println(s);
     }
     
@@ -28,13 +28,13 @@ public class ThirdPig extends Pig{
     
     public void tiptoeTo(PlayObject po) {
         String s = this.mName + " tiptoes to " + po.getName();
-         System.out.println(s);
+        System.out.println(s);
     }
     
     //should do this or attack() is okey
     public void putStuffs(PlayObject po1, PlayObject po2, Moveable subject) {
-        String s = this.mName + " puts " + po1.getName() + " and "  + po2.getName() 
-            + " into " + subject.getName() + "'s pants.";
+        String s = this.mName + " puts " + po1.getName() + " and " +
+            po2.getName() + " into " + subject.getName() + "'s pants.";
         System.out.println(s);
     }
 }

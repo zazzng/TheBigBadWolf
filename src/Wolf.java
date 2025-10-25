@@ -14,16 +14,11 @@ public class Wolf extends Moveable {
         super(name);
     }
     
-    public void chase(Moveable subject) {
-        String s = this.mName + " chases " + subject.getName() + ".";
-        System.out.println(s);
-    }
-    
-    public void moveToward(String action, ArrayList<Moveable> subjects) {
+    private void moveToward(String action, ArrayList<Moveable> subjects) {
         StringBuffer sb = new StringBuffer();
         sb.append(this.mName);
-        sb.append(" " + action + " ");
-        for (int i = 0; i > subjects.size(); i++) {
+        sb.append(" ").append(action).append(" ");
+        for (int i = 0; i < subjects.size(); i++) {
             Moveable subject = subjects.get(i);
             sb.append(subject.getName());
             if (i == subjects.size() - 1) {
@@ -35,33 +30,44 @@ public class Wolf extends Moveable {
         System.out.println(sb.toString());
     }
     
+    public void approach(ArrayList<Moveable> subjects) {
+        this.moveToward("approaches", subjects);
+    }
+    
     public void chase(ArrayList<Moveable> subjects) {
         this.moveToward("chases", subjects);
     }
     
-    public void approach(ArrayList<Moveable> subjects) {
-        this.moveToward("approaches", subjects);
+    public void chase(Moveable subject) {
+        String s = this.mName + " chases " + subject.getName() + ".";
+        System.out.println(s);
     }
     
     public void disguiseAs(Role newRole) {
         if (newRole != Role.WOLF) {
             this.mRole = newRole;
-            String s = this.mName + " disguises as " +
-                newRole.name().toLowerCase() + ".";
+            
+            String roleName = this.mRole.name().substring(0, 1) +
+                this.mRole.name().substring(1).toLowerCase();
+            String s = this.mName + " disguises as " + roleName + ".";
             System.out.println(s);
         }
     }
     
     public void disguiseExposed() {
         if (this.mRole != Role.WOLF) {
-            String s = this.mName + "'s disguise as " +
-                this.mRole.name().toLowerCase() + " is exposed.";
+            String roleName = this.mRole.name().substring(0, 1) +
+                this.mRole.name().substring(1).toLowerCase();
+            String s = this.mName + "'s disguise as " + roleName +
+                " is exposed.";
             System.out.println(s);
+            
+            this.mRole = Role.WOLF;
         }
     }
     
     public void actionOnTree(String action) {
-        String s = this.mName + " " + action + " a tree";
+        String s = this.mName + " " + action + " a tree.";
         System.out.println(s);
     }
     
@@ -85,7 +91,7 @@ public class Wolf extends Moveable {
         System.out.println(s);
     }
     
-    public void moveHeadOutOfBlanket(PlayObject po) {
+    public void moveHeadOutOf(PlayObject po) {
         String s = this.mName + " moves head out of " + po.getName() + ".";
         System.out.println(s);
     }

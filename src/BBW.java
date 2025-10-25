@@ -34,11 +34,9 @@ public class BBW {
         Woods woods = new Woods("woods");
         PigHouse pigHouse = new PigHouse("Three Little Pigs' house");
         GrandmaHouse grandmaHouse = new GrandmaHouse("Grandma's house");
-        Cupboard cupboard = new Cupboard("the cupboard");
-        Blanket blanket = new Blanket("blanket");
-        Bed bed = new Bed("bed");
         
         // declare items
+        Blanket blanket = new Blanket("blanket");
         PopCorn popCorn = new PopCorn("pop corn"); 
         Coal coal = new Coal("hot coal");
         
@@ -87,9 +85,10 @@ public class BBW {
         
         for (Pig pig : pigsWithInstruments) {
             pig.say("""
-                    You get there quick Red Riding Hood. 
-                    If you take the shortcut through the woods.""");
+                You get there quick Red Riding Hood. 
+                If you take the shortcut through the woods.""");
         }
+        
         pig3.say("There's danger in them woods. Be aware! " + wolf.getName() +
             " is lurking there!" + "\nBetter to be safe than sorry!" +
             "\nShortcuts are not always good. Take the long road around the " +
@@ -120,13 +119,14 @@ public class BBW {
         }
         
         wolf.actionOnTree("hides behind");
-        wolf.disguiseAs("Fairy Queen");
+        wolf.disguiseAs(Wolf.Role.FAIRY);
         
         for (Pig pig : pigsWithInstruments) {
             pig.playMusicalInstrument();
         }
         
         wolf.approach(woodsTeam);
+        wolf.actionOnTree("hangs on");
         wolf.sing("I'm Goldilox the Fairy Queen. "
             + "Spirit of the woods in my whoops. "
             + "\nYou better fly from tree to tree. "
@@ -151,14 +151,15 @@ public class BBW {
         grandma.say("Come in!");
         wolf.enter(grandmaHouse);
         wolf.chase(grandma);
-        grandma.hide("in", cupboard);
-        wolf.bangs(cupboard);
+        grandma.hide("in", grandmaHouse.getCupboard());
+        wolf.bangs(grandmaHouse.getCupboard());
         
         redGirl.walkTo(grandmaHouse);
         redGirl.knock(grandmaHouse.getDoor());    
-        wolf.disguiseAs("grandma");
+        wolf.disguiseAs(Wolf.Role.GRANDMA);
         wolf.say("Come in!");
         redGirl.enter(grandmaHouse);
+        
         redGirl.say("Good morning Grandma, how do you feel?");
         wolf.say("Terrible!");
         wolf.changeVoice(grandma);
@@ -169,10 +170,12 @@ public class BBW {
         redGirl.surprise();
         redGirl.ask("Ooh grandma, what a big nose you’ve got!");
         wolf.say("All the better to hachchchh");
+        
         wolf.hide("under", blanket);
-        wolf.talkToHimself("How am I doing");
+        wolf.talkToHimself("How am I doing?");
         wolf.laugh();
-        wolf.moveHeadOutOfBlanket(blanket);
+        wolf.moveHeadOutOf(blanket);
+        
         redGirl.surprise();
         redGirl.ask("Ooh grandma, what a big mouth you’ve got!");
         wolf.changeVoice(wolf);
@@ -189,7 +192,7 @@ public class BBW {
         }
         
         for (Pig pig : pigsWithInstruments) {
-            pig.hide("under", bed);
+            pig.hide("under", pigHouse.getBed());
         }
         
         for (Pig pig : pigsWithInstruments) {
@@ -202,24 +205,24 @@ public class BBW {
         BBW.display("=== Grandma's House ===");
         
         wolf.chase(redGirl);
-        grandma.take(redGirl, cupboard);
-        redGirl.hide("inside", cupboard);
-        grandma.hide("inside", cupboard);
-        wolf.bangs(cupboard);
+        grandma.take(redGirl, grandmaHouse.getCupboard());
+        redGirl.hide("inside", grandmaHouse.getCupboard());
+        grandma.hide("inside", grandmaHouse.getCupboard());
+        wolf.bangs(grandmaHouse.getCupboard());
         
         pig3.enter(grandmaHouse);
-        wolf.say("Open the door and let me in.");
+        wolf.say("Open the door and let me in!");
         pig3.tiptoeTo(wolf);
         pig3.putStuffs(popCorn, coal, wolf);
         wolf.burn();
         wolf.fly(grandmaHouse.getRoof());
         popCorn.pop();
         wolf.runAwayTo(null, true); 
-        pig1.shakeHandsWith(pig2);
         
         BBW.display("=== Grandma's House After Chasing The Wolf Away ===");
         grandma.knit();
         
+        pig1.shakeHandsWith(pig2);
         //hmmm this part is okeyy?
         // notes: need to change the team name to be more descriptive
         for (Moveable pianoTeammates : playingMusicalInstrumentTeam){
@@ -230,10 +233,6 @@ public class BBW {
             pig.sing("Who’s afraid of the big bad wolf. "
                 + "He’s the biggest sissy");
         } 
-        
-        
-        
-    
     }
     
 }
