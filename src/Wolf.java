@@ -14,6 +14,7 @@ public class Wolf extends Moveable {
     }
     
     public void disguiseAs(Role newRole) {
+        // changing wolf's role according to its current disguise
         if (newRole != Role.WOLF) {
             this.mRole = newRole;
             
@@ -26,6 +27,7 @@ public class Wolf extends Moveable {
     
     public void disguiseExposed() {
         if (this.mRole != Role.WOLF) {
+            // changing Wolf's role back to WOLF when the disguise is exposed
             String roleName = this.mRole.name().substring(0, 1) +
                 this.mRole.name().substring(1).toLowerCase();
             String s = this.mName + "'s disguise as " + roleName +
@@ -100,6 +102,7 @@ public class Wolf extends Moveable {
     }
     
     public void changeVoice(Role newRole) {
+        // setting's the Wolf's voice according to its role
         this.mRole = newRole;
         String s;
         switch (this.mRole) {
