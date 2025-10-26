@@ -73,7 +73,7 @@ public class BBW {
                 If you take the shortcut through the woods.""");
         }
         
-        pig3.say("There's danger in them woods. Be aware! " + wolf.getName() +
+        pig3.say("There's danger in the woods. Be aware! " + wolf.getName() +
             " is lurking there!" + "\nBetter to be safe than sorry!" +
             "\nShortcuts are not always good. Take the long road around the " +
             "forest while " + wolf.getName() + " is in the woods.");

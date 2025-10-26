@@ -15,12 +15,6 @@ public class ThirdPig extends Pig{
         System.out.println(s);
     }
     
-    public void attack(PlayObject po) {
-        String s = this.mName + " puts pop corn and hot coal into " +
-            po.getName() + "'s pants.";
-        System.out.println(s);
-    }
-    
     public void packEquipment() {
         String s = this.mName + " packs equipment into his bag.";
         System.out.println(s);
@@ -31,7 +25,6 @@ public class ThirdPig extends Pig{
         System.out.println(s);
     }
     
-    //should do this or attack() is okey
     public void putStuffs(PlayObject po1, PlayObject po2, Moveable subject) {
         String s = this.mName + " puts " + po1.getName() + " and " +
             po2.getName() + " into " + subject.getName() + "'s pants.";
