@@ -10,7 +10,7 @@ public class RedRidingHood extends Moveable{
         System.out.println(s);
     }
     
-    public void surprised() {
+    public void surprise() {
         String s = this.mName + " is surprised.";
         System.out.println(s);
     }

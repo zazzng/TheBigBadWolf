@@ -8,9 +8,16 @@ public class Wolf extends Moveable {
         return this.mRole;
     }
     
+    // fields
+    protected Pants mPants = null;
+    public Pants getPants() {
+        return this.mPants;
+    }
+    
     // Public constructor for a concrete class
     public Wolf(String name) {
         super(name);
+        this.mPants = new Pants(this.mName + "'s pants");
     }
     
     public void disguiseAs(Role newRole) {
@@ -25,7 +32,7 @@ public class Wolf extends Moveable {
         }
     }
     
-    public void disguiseExposed() {
+    public void exposeDisguise() {
         if (this.mRole != Role.WOLF) {
             // changing Wolf's role back to WOLF when the disguise is exposed
             String roleName = this.mRole.name().substring(0, 1) +
@@ -71,13 +78,23 @@ public class Wolf extends Moveable {
         System.out.println(s);
     }
     
-    public void actionOnTree(String action) {
-        String s = this.mName + " " + action + " a tree.";
+    public void hangOn(PlayObject po) {
+        String s = this.mName + " hangs on " + po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    public void fallOff(PlayObject po) {
+        String s = this.mName + " fall off " + po.getName() + ".";
+        System.out.println(s);
+    }
+    
+    public void stuckOn(PlayObject po) {
+        String s = this.mName + " stucks on " + po.getName() + ".";
         System.out.println(s);
     }
     
     public void bangs(PlayObject po) {
-        String s = this.mName + " bangs on " + po.getName();
+        String s = this.mName + " bangs on " + po.getName() + ".";
         System.out.println(s);
     }
     

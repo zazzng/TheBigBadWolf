@@ -39,6 +39,10 @@ public class BBW {
         playingMusicalInstrumentTeam.add(pig3);
         playingMusicalInstrumentTeam.add(redGirl);
         
+        ArrayList<PlayObject> attackItems = new ArrayList<>();
+        attackItems.add(popCorn);
+        attackItems.add(coal);
+        
         // Introduce the title of the story
         BBW.display("<<The Big Bad Wolf>>");
         
@@ -103,7 +107,7 @@ public class BBW {
             subject.walkTo(woods);
         }
         
-        wolf.actionOnTree("hides behind");
+        wolf.hide("behind", woods.getTree());
         wolf.disguiseAs(Wolf.Role.FAIRY);
         
         for (Pig pig : notWorkingPigs) {
@@ -111,21 +115,21 @@ public class BBW {
         }
         
         wolf.approach(charactersInWoodScene);
-        wolf.actionOnTree("hangs on");
-        wolf.sing("I'm Goldilox the Fairy Queen. "
-            + "Spirit of the woods in my whoops. "
-            + "\nYou better fly from tree to tree. "
-            + "Come come my dear. You're safe with me.");
+        wolf.hangOn(woods.getTree());
+        wolf.sing("I'm Goldilox the Fairy Queen." +
+            " Spirit of the woods in my whoops." +
+            "\nYou better fly from tree to tree." +
+            " Come come my dear. You're safe with me.");
         
-        wolf.actionOnTree("fell off");
-        wolf.disguiseExposed();
+        wolf.fallOff(woods.getTree());
+        wolf.exposeDisguise();
         
         for (Pig pig : notWorkingPigs) {
             pig.runAwayTo(null, true);
         }
         
         wolf.chase(redGirl);
-        wolf.actionOnTree("stucks on");
+        wolf.stuckOn(woods.getTree());
         redGirl.runAwayTo(null, true);
         
         // Grandma's House Scene
@@ -152,10 +156,10 @@ public class BBW {
         wolf.say("Terrible!");
         wolf.changeVoice(Wolf.Role.GRANDMA);
         wolf.say("Not so hot, deary");
-        redGirl.surprised();
+        redGirl.surprise();
         redGirl.ask("Ooh grandma, what big eyes you’ve got!");
         wolf.say("All the better to look you over deary");
-        redGirl.surprised();
+        redGirl.surprise();
         redGirl.ask("Ooh grandma, what a big nose you’ve got!");
         wolf.say("All the better to hachchchh");
         
@@ -165,7 +169,7 @@ public class BBW {
         wolf.laugh();
         wolf.moveHeadOutOf(grandmaHouse.getBed().getBlanket());
         
-        redGirl.surprised();
+        redGirl.surprise();
         redGirl.ask("Ooh grandma, what a big mouth you’ve got!");
         wolf.changeVoice(Wolf.Role.WOLF);
         wolf.say("You ain’t seen enough of me deary?");
@@ -203,7 +207,7 @@ public class BBW {
         pig3.enter(grandmaHouse);
         wolf.say("Open the door and let me in!");
         pig3.tiptoeTo(wolf);
-        pig3.putStuffs(popCorn, coal, wolf);
+        pig3.putStuffsInto(attackItems, wolf.getPants());
         wolf.burn();
         wolf.fly(grandmaHouse.getRoof());
         popCorn.pop();
@@ -219,8 +223,8 @@ public class BBW {
         }
         
         for (Pig pig : notWorkingPigs){
-            pig.sing("Who’s afraid of the big bad wolf. "
-                + "He’s the biggest sissy");
+            pig.sing("Who’s afraid of the big bad wolf. " +
+                "He’s the biggest sissy");
             pig.dance();
         } 
     }

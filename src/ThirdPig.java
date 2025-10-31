@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 public class ThirdPig extends Pig{
     // Public constructor for a concrete class
     public ThirdPig(String name) {
@@ -25,9 +28,20 @@ public class ThirdPig extends Pig{
         System.out.println(s);
     }
     
-    public void putStuffs(PlayObject po1, PlayObject po2, Moveable subject) {
-        String s = this.mName + " puts " + po1.getName() + " and " +
-            po2.getName() + " into " + subject.getName() + "'s pants.";
-        System.out.println(s);
+    public void putStuffsInto(ArrayList<PlayObject> items, PlayObject place) {
+        // printing "ThirdPig put items into place"
+        StringBuffer sb = new StringBuffer();
+        sb.append(this.mName).append(" puts ");
+        
+        for (int i = 0; i < items.size(); i++) {
+            PlayObject item = items.get(i);
+            sb.append(item.getName());
+            if (i < (items.size() - 1)) {
+                sb.append(" and ");
+            }
+        }
+        
+        sb.append(" into ").append(place.getName()).append(".");
+        System.out.println(sb.toString());
     }
 }
