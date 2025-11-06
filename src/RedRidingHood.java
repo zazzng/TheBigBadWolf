@@ -1,4 +1,4 @@
-public class RedRidingHood extends Moveable{
+public class RedRidingHood extends CharactersWithInstruments{
     // Public constructor for a concrete class
     public RedRidingHood(String name) {
         super(name);

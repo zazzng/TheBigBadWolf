@@ -33,7 +33,7 @@ public class BBW {
         charactersInWoodScene.add(pig2);
         charactersInWoodScene.add(redGirl);
         
-        ArrayList<Moveable> playingMusicalInstrumentTeam = new ArrayList<>();
+        ArrayList<CharactersWithInstruments> playingMusicalInstrumentTeam = new ArrayList<>();
         playingMusicalInstrumentTeam.add(pig1);
         playingMusicalInstrumentTeam.add(pig2);
         playingMusicalInstrumentTeam.add(pig3);
@@ -218,7 +218,7 @@ public class BBW {
         grandma.knit();
         pig1.shakeHandsWith(pig2);
         
-        for (Moveable pianoTeammates : playingMusicalInstrumentTeam){
+        for (CharactersWithInstruments pianoTeammates : playingMusicalInstrumentTeam){
             pianoTeammates.playMusicalInstrument();
         }
         

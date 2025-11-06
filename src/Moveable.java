@@ -68,7 +68,4 @@ public abstract class Moveable extends PlayObject{
             po.getName() + ".";
         System.out.println(s);
     }
-    
-    // Abstract method for its subclass to override later
-    public void playMusicalInstrument() {}
 }

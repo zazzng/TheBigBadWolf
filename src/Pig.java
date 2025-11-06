@@ -1,4 +1,4 @@
-public abstract class Pig extends Moveable{
+public abstract class Pig extends CharactersWithInstruments{
     // Protected constructor that is called by its child class
     protected Pig(String name) {
         super(name);

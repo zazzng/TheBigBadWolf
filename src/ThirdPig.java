@@ -29,7 +29,7 @@ public class ThirdPig extends Pig{
     }
     
     public void putStuffsInto(ArrayList<PlayObject> items, PlayObject place) {
-        // printing "ThirdPig put items into place"
+        // printing "ThirdPig put 'items' into place"
         StringBuffer sb = new StringBuffer();
         sb.append(this.mName).append(" puts ");
         
