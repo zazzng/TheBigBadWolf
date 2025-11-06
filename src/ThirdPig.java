@@ -1,7 +1,6 @@
-
 import java.util.ArrayList;
 
-public class ThirdPig extends Pig{
+public class ThirdPig extends Pig {
     // Public constructor for a concrete class
     public ThirdPig(String name) {
         super(name);

@@ -11,6 +11,8 @@ public abstract class Moveable extends PlayObject{
     
     public void runAwayTo(PlayObject po, boolean towards){
         // prints the type of running the character po is doing
+        // if toward is true, then it's running towards po
+        // if toward is false, then it's running aroung po (if any)
         String s;
         if (po == null) {
             s = this.mName + " runs away.";

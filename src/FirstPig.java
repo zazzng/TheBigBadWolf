@@ -1,4 +1,4 @@
-public class FirstPig extends Pig{
+public class FirstPig extends Pig {
     // Public constructor for a concrete class
     public FirstPig(String name) {
         super(name);

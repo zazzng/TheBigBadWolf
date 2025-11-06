@@ -28,12 +28,14 @@ public class BBW {
         notWorkingPigs.add(pig1);
         notWorkingPigs.add(pig2);
         
-        ArrayList<Moveable> charactersInWoodScene = new ArrayList<>();
+        ArrayList<CharactersWithInstruments> charactersInWoodScene =
+            new ArrayList<>();
         charactersInWoodScene.add(pig1);
         charactersInWoodScene.add(pig2);
         charactersInWoodScene.add(redGirl);
         
-        ArrayList<CharactersWithInstruments> playingMusicalInstrumentTeam = new ArrayList<>();
+        ArrayList<CharactersWithInstruments> playingMusicalInstrumentTeam = 
+            new ArrayList<>();
         playingMusicalInstrumentTeam.add(pig1);
         playingMusicalInstrumentTeam.add(pig2);
         playingMusicalInstrumentTeam.add(pig3);
@@ -202,7 +204,7 @@ public class BBW {
         grandma.take(redGirl, grandmaHouse.getCupboard());
         redGirl.hide("inside", grandmaHouse.getCupboard());
         grandma.hide("inside", grandmaHouse.getCupboard());
-        wolf.bangs(grandmaHouse.getCupboard());
+        wolf.bang(grandmaHouse.getCupboard());
         
         pig3.enter(grandmaHouse);
         wolf.say("Open the door and let me in!");
@@ -218,8 +220,9 @@ public class BBW {
         grandma.knit();
         pig1.shakeHandsWith(pig2);
         
-        for (CharactersWithInstruments pianoTeammates : playingMusicalInstrumentTeam){
-            pianoTeammates.playMusicalInstrument();
+        for (CharactersWithInstruments character : 
+            playingMusicalInstrumentTeam) {
+            character.playMusicalInstrument();
         }
         
         for (Pig pig : notWorkingPigs){

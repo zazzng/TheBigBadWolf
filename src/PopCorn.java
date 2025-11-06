@@ -1,4 +1,4 @@
-public class PopCorn extends PlayObject{
+public class PopCorn extends PlayObject {
     // Public constructor for a concrete class
     public PopCorn(String name) {
         super(name);

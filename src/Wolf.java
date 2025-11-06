@@ -93,7 +93,7 @@ public class Wolf extends Moveable {
         System.out.println(s);
     }
     
-    public void bangs(PlayObject po) {
+    public void bang(PlayObject po) {
         String s = this.mName + " bangs on " + po.getName() + ".";
         System.out.println(s);
     }
