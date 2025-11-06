@@ -24,12 +24,11 @@ public class BBW {
         Coal coal = new Coal("hot coal");
         
         // Declare groups
-        ArrayList<Pig> notWorkingPigs = new ArrayList<Pig>();
+        ArrayList<Pig> notWorkingPigs = new ArrayList<>();
         notWorkingPigs.add(pig1);
         notWorkingPigs.add(pig2);
         
-        ArrayList<CharactersWithInstruments> charactersInWoodScene =
-            new ArrayList<>();
+        ArrayList<Moveable> charactersInWoodScene = new ArrayList<>();
         charactersInWoodScene.add(pig1);
         charactersInWoodScene.add(pig2);
         charactersInWoodScene.add(redGirl);
@@ -145,7 +144,7 @@ public class BBW {
         wolf.enter(grandmaHouse);
         wolf.chase(grandma);
         grandma.hide("in", grandmaHouse.getCupboard());
-        wolf.bangs(grandmaHouse.getCupboard());
+        wolf.bang(grandmaHouse.getCupboard());
         
         // Conversation between Wolf and RRH
         redGirl.walkTo(grandmaHouse);
